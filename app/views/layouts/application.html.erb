@@ -15,21 +15,48 @@
 <%= yield %>
 <script>
 function initialize() {
-  var initLatLng;
+  var initLatLng, destLatLong;
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (pos) {
       if (pos) {
-        console.log("HEYYY");
-      };
-      initLatLng = { lat: pos.coords.latitude, lng: pos.coords.longitude };
-      console.log("initLatLng: ", initLatLng);
+        console.log("GOT POSITION");
+      } else { console.log("FAILED TO GET POSITION"); };
+      originLatLong = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+      console.log("originLatLong: ", originLatLong);
+
+      destLatLong = { lat: 39.7807452, lng: -86.1627942 };
+      console.log("destLatLong: ", destLatLong);
 
       var mapProp = {
-        center:new google.maps.LatLng(initLatLng),
+        center:new google.maps.LatLng(originLatLong),
         zoom:15,
         mapTypeId:google.maps.MapTypeId.ROADMAP
       };
       var map=new google.maps.Map(document.getElementById("map"),mapProp);
+
+      var directionsService = new google.maps.DirectionsService();
+      var directionsRequest = {
+        origin: ""+originLatLong['lat']+","+originLatLong['lng'],
+        destination: ""+destLatLong['lat']+","+destLatLong['lng'],
+        travelMode: google.maps.DirectionsTravelMode.TRANSIT,
+        unitSystem: google.maps.UnitSystem.IMPERIAL
+      };
+      directionsService.route(
+        directionsRequest,
+        function(response, status)
+        {
+          if (status == google.maps.DirectionsStatus.OK)
+          {
+            new google.maps.DirectionsRenderer({
+              map: map,
+              directions: response
+            });
+          }
+          else {
+            console.log("status: ", status);
+          }
+        }
+      );
     });
   } else {
     console.log("Geolocation is not supported by this browser.");
