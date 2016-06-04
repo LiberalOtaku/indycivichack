@@ -10,14 +10,10 @@ var trip = {
 
   submitForm: function(event) {
     event.preventDefault();
-    var alert = document.querySelector('div.alert-area');
-    alert.innerHTML = ' \
-      <div class="alert alert-success" role="alert"> \
-        Issue successfully submitted!
-      </div>';
+    var trips = document.querySelector('div.trip-area');
+    trips.innerHTML += '';
 
-    this.form.reset();
-    this.form.name.focus();
+
   },
 
 };
