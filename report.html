@@ -22,14 +22,29 @@
     <link href="report.css" rel="stylesheet">
   </head>
   <body>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="trip.html">Plan a Trip</a></li>
-        <li class="active"><a href="#">Report an Issue</a></li>
-      </ul>
-    </div>
-    <div class="col-xs-8 col-xs-offset-2">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Five For Biking</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="trip.html">Plan Trip</a></li>
+            <li class="active"><a href="#">Report</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div id="form" class="col-xs-8 col-xs-offset-2">
       <h1>Report an Issue</h1>
       <form id="issueForm">
         <h4>Your Name</h4>

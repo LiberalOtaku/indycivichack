@@ -9,3 +9,7 @@ input, textarea {
 div.alert-area {
   margin-top: 24px;
 }
+
+div#form {
+  margin-top: 60px;
+}
