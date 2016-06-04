@@ -13,7 +13,7 @@ url = 'https://gbfs.bcycle.com/bcycle_pacersbikeshare/station_information.json'
 response = HTTParty.get(url)
 
 response.parsed_response['data']['stations'].each do |s|
-  Bikestation.create!(
+  Bikestation.find_or_create_by!(
     lat: s['lat'],
     lon: s['lon'],
     add: s['address'],
