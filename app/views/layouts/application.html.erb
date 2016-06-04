@@ -14,23 +14,31 @@
 
 <%= yield %>
 <script>
-handler = Gmaps.build('Google');
-handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  markers = handler.addMarkers([
-    {
-      "lat": 0,
-      "lng": 0,
-      "picture": {
-        "url": "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
-        "width":  32,
-        "height": 32
-      },
-      "infowindow": "hello!"
-    }
-  ]);
-  handler.bounds.extendWith(markers);
-  handler.fitMapToBounds();
-});
+function initialize() {
+  var initLatLng;
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (pos) {
+      if (pos) {
+        console.log("HEYYY");
+      };
+      initLatLng = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+      console.log("initLatLng: ", initLatLng);
+
+      var mapProp = {
+        center:new google.maps.LatLng(initLatLng),
+        zoom:15,
+        mapTypeId:google.maps.MapTypeId.ROADMAP
+      };
+      var map=new google.maps.Map(document.getElementById("map"),mapProp);
+    });
+  } else {
+    console.log("Geolocation is not supported by this browser.");
+    initLatLng = { lat: 39.768377, lng: -86.158042 };
+  }
+
+  
+}
+google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 </body>
 </html>
