@@ -11,7 +11,7 @@
 
 </head>
 <body>
-
+<%= render 'layouts/navbar' %>
 <%= yield %>
 <script>
 function initialize() {
@@ -63,7 +63,7 @@ function initialize() {
     initLatLng = { lat: 39.768377, lng: -86.158042 };
   }
 
-  
+
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
