@@ -94,13 +94,14 @@
             response.routes[0].legs[0].steps[ response.routes[0].legs[0].steps.length - 1 ].start_point.lng()
           );
 
-          var dist, retBikeStations, currStation;
+          var dist, currStation;
+          var retBikeStations = new Array();
           var bikeStations = new Array();
 
           $.getJSON('https://gbfs.bcycle.com/bcycle_pacersbikeshare/station_information.json', function(res){
             console.log("res.data.bikeStations: ", res.data.bikeStations);
             $('#output').val(res.data.bikeStations);
-            retBikeStations = res.data.bikeStations;
+            retBikeStations = new Array(res.data.bikeStations);
 
             retBikeStations.forEach(function (curr, ind, arg) {
               bikeStations.push(new google.maps.LatLng(retBikeStations[ind]['lon'], retBikeStations[ind]['lat']));
