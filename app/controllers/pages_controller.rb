@@ -7,5 +7,6 @@ class PagesController < ApplicationController
   end
 
   def report
+    @bikestations = Bikestation.all
   end
 end
