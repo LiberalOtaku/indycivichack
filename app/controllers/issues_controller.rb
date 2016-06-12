@@ -9,9 +9,9 @@ class IssuesController < ApplicationController
   def create
     @issue = Issue.new(issue_params)
     if @issue.save
-      redirect_to index_path
+      redirect_to root_path
     else
-      render :create
+      render :new
     end
   end
 
