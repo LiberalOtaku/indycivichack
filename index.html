@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-</head>
-<body>
 	<script type='text/javascript'>
-		window.location.href='https://indytransit.herokuapp.com/';
+		function onBodyLoad() {
+			document.addEventListener("deviceready", onDeviceReady, false);
+			window.location.href = 'https://indytransit.herokuapp.com/';
+		}
+		function onDeviceReady() {
+			// blah
+		}
 	</script>
+</head>
+<body onload="onBodyLoad()">
+
 </body>
 </html>
