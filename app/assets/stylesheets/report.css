@@ -13,3 +13,11 @@ div.alert-area {
 div#form {
   margin-top: 60px;
 }
+
+.movedown {
+  margin-bottom: -10px;
+}
+
+.text-input {
+  height: 300px;
+}
