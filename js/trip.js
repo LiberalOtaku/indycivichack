@@ -10,39 +10,21 @@ var trip = {
 
   submitForm: function(event) {
     event.preventDefault();
+    var ul = $('ul.trip-details');
+    ul.slideUp().html('');
 
     // get list of routes and times
 
-    $('div.trip-area').append(trip.buildRouteInfo(bus, bike, walk));
+    // for each route:
+    ul.append(trip.buildRouteInfo(route));
+
+    ul.slideDown();
   },
 
-  buildRouteInfo: function(bus, bike, walk) {
-    var busTime = $('<li/>').text("Bus Time: " + bus + " Minutes");
-    var bikeTime = $('<li/>').text("Biking Time: " + bike + " Minutes");
-    var walkTime = $('<li/>').text("Walking Time: " + walk + " Minutes");
-
-    var ul = $('<ul/>').slideUp()
-      .attr({
-        "class": "trip-details",
-        "show": "false",
-      })
-      .append(busTime, bikeTime, walkTime);
-
-    var button = $('<a/>').attr({
-      href: "#",
-    }).text("Show Details")
-      .click(function() {
-      if (ul.attr("show")) {
-        ul.slideUp().attr({ "show": "false", });
-        button.text("Show Details");
-      }
-      else {
-        ul.slideDown().attr({ "show": "true", });
-        button.text("Hide Details");
-      }
-    });
-
-    return $('<div/>').append(button, ul);
+  buildRouteInfo: function(route) {
+    return $('<li/>').html(' \
+      // get route info and add html here
+      ');
   },
 };
 
