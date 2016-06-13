@@ -1,41 +1,13 @@
-<%= form_for @issue, url: {action: "create"}, html: {class: "col-xs-8 col-xs-offset-2"} do |f| %>
-  <%= f.text_area :message, size: "60x12" %>
-  <%= f.text_field :email %>
-  <%= f.submit "Create" %>
-<% end %>
-
-<div id="form" class="col-xs-8 col-xs-offset-2">
-  <h1>Report an Issue</h1>
-  <form id="issueForm">
-    <h4>Your Name</h4>
-    <input type="text"
-           name="clientName"
-           class="form-control"
-           placeholder="Enter Your Name"
-           required>
-    <h4>Your Email Address</h4>
-    <input type="email"
-           name="email"
-           class="form-control"
-           placeholder="Enter Your Email"
-           required>
-    <h4>Subject</h4>
-    <input type="text"
-           name="subject"
-           class="form-control"
-           placeholder="Enter Subject"
-           required>
-    <h4>Message</h4>
-    <textarea name="message"
-              rows="5"
-              class="form-control"
-              placeholder="Enter Your Message"
-              required></textarea>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-  </form>
-
-  <div class="alert-area">
-  </div>
+<div id="form" class="col-xs-10 col-xs-offset-1">
+  <%= form_for @issue, url: {action: "create"}, html: {id: "issueForm"} do |f| %>
+    <h1>Report an Issue</h1>
+    <%= f.text_area :message, required: true, placeholder: "Enter your message", class: "text-input form-control" %>
+    <h4 class="movedown">Your Email Address</h4>
+    <%= f.text_field :email, placeholder: "Enter your email, if you like", type: "email", name: "email", class: "form-control" %>
+    <%= f.submit "Submit", class: "btn btn-lg btn-primary btn-block", type: "submit" %>
+    <div class="alert-area">
+    </div>
+  <% end %>
 </div>
 
 <script src="report.js"></script>
