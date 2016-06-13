@@ -4,7 +4,7 @@
 	<script type='text/javascript'>
 		function onBodyLoad() {
 			document.addEventListener("deviceready", onDeviceReady, false);
-			window.location.href = 'https://indytransit.herokuapp.com/';
+      var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
 		}
 		function onDeviceReady() {
 			// blah
