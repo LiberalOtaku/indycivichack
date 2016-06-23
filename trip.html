@@ -311,35 +311,23 @@
           console.log("Using default LatLong for Indianapolis: ", indy);
         };
 
-        // Display the map
-        mapProps = {
-          center: origin,
-          zoom: 15,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-
-        map = new google.maps.Map(document.getElementById("map-container"), mapProps);
-        // map = new google.maps.Map($('#map-container')[0], mapProps);
-
-        // setTimeout(getRoutes(), 10000);
-        debugger;
       });
     } else {
       console.log("Geolocation is not supported on this phone/browser.");
       console.log("Using default LatLong for Indianapolis: ", indy);
-
-      // Display the map
-      mapProps = {
-        center: origin,
-        zoom: 15,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
-
-      map = new google.maps.Map(document.getElementById("map-container"), mapProps);
-      // map = new google.maps.Map($('#map-container')[0], mapProps);
-
-      // setTimeout(getRoutes(), 10000);
     };
+
+    // Display the map
+    mapProps = {
+      center: origin,
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    map = new google.maps.Map(document.getElementById("map-container"), mapProps);
+    // map = new google.maps.Map($('#map-container')[0], mapProps);
+
+    // setTimeout(getRoutes(), 10000);
   }
 
 
