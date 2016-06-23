@@ -1,3 +1,7 @@
 .trip-details {
   list-style: none;
 }
+
+.navbar {
+  margin-bottom: 0 !important;
+}
