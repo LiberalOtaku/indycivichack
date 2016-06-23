@@ -57,9 +57,9 @@ dest = new google.maps.LatLng(39.774480, -86.151075);
 // TODO: Switch to calling getRoutes() on user input submit
 // loadMap(): render map centered on geolocation|indy
 function loadMap() {
+  debugger;
   // geolocation if available, default Indy LatLng otherwise
-  // if (navigator.geolocation)
-  if (false) {
+  if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (pos) {
       if (pos) {
         console.log("Geolocation successful.");
@@ -77,10 +77,11 @@ function loadMap() {
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
 
-      // map = new google.maps.Map(document.getElementById("map-container"), mapProps);
-      map = new google.maps.Map($('#map-container')[0], mapProps);
+      map = new google.maps.Map(document.getElementById("map-container"), mapProps);
+      // map = new google.maps.Map($('#map-container')[0], mapProps);
 
       // setTimeout(getRoutes(), 10000);
+      debugger;
     });
   } else {
     console.log("Geolocation is not supported on this phone/browser.");
@@ -93,8 +94,8 @@ function loadMap() {
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
-    // map = new google.maps.Map(document.getElementById("map-container"), mapProps);
-    map = new google.maps.Map($('#map-container')[0], mapProps);
+    map = new google.maps.Map(document.getElementById("map-container"), mapProps);
+    // map = new google.maps.Map($('#map-container')[0], mapProps);
 
     // setTimeout(getRoutes(), 10000);
   };
