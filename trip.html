@@ -297,18 +297,6 @@
   // TODO: Switch to calling getRoutes() on user input submit
   // loadMap(): render map centered on geolocation|indy
   function loadMap() {
-    // Display the map (center at indy instead of origin for now)
-    mapProps = {
-      center: indy,
-      zoom: 15,
-      // mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-
-    map = new google.maps.Map(document.getElementById("map-container"), mapProps);
-    // map = new google.maps.Map($('#map-container')[0], mapProps);
-
-    // setTimeout(getRoutes(), 10000);
-
     // geolocation if available, default Indy LatLng otherwise
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (pos) {
@@ -326,6 +314,18 @@
       console.log("Geolocation is not supported on this phone/browser.");
       console.log("Using default LatLong for Indianapolis: ", indy);
     };
+
+    // Display the map
+    mapProps = {
+      center: origin,
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    map = new google.maps.Map(document.getElementById("map-container"), mapProps);
+    // map = new google.maps.Map($('#map-container')[0], mapProps);
+
+    // setTimeout(getRoutes(), 10000);
   }
 
 
