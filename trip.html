@@ -1,55 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- copied from bootstrap -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
+    <!-- <link rel="icon" href="../../favicon.ico"> -->
 
-    <title>Plan Your Trip</title>
+    <title>Navigate - IndyTransit</title>
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="css/carousel.css" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet"> -->
 
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!-- <script src="../../assets/js/ie-emulation-modes-warning.js"></script> -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="carousel.css" rel="stylesheet"> -->
+    <!-- <link href='other.css' rel='stylesheet' type='text/css'> -->
     <!--Material Icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <!-- end copy from bootstrap -->
+	<!-- Javascript and jQuery links for running Google Maps-->
+  <script src="js/jquery-2.2.4.min.js"></script>
+	<link href="jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+  <script src="js/jquery-2.2.4.min.js"></script>
+	<script src="jquery-ui-1.11.4/jquery-ui.min.js"></script>
+	<!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script> -->
+	<script src="https://maps.google.com/maps/api/js?v=3.23&key=AIzaSyDC3sTk8clSJMlgijoUSF6__6s8bCxjj4s&libraries=places"></script>
 
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
-    <!-- Good default declaration:
-    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-        * Enable inline JS: add 'unsafe-inline' to default-src
-        * Enable eval(): add 'unsafe-eval' to default-src
-    * Create your own at http://cspisawesome.com
-    -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+<!-- 	<script>
+		var map;
+		var myLatLng;
+		//var marker;
 
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+		$(document).ready(function() {
+			google.maps.event.addDomListener(window, 'load', initialize);
+		});
+
+		function initialize() {
+			var mapOptions = {
+				zoom: 5,
+				center: new google.maps.LatLng(0, 0),
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+			map = new google.maps.Map($('#map-container')[0], mapOptions);
+
+		}
+	</script> -->
+
+
+  <script src="js/maps.js"></script>
   </head>
 <!-- NAVBAR
 ================================================== -->
   <body>
     <div class="navbar-wrapper">
-      <div class="container">
+      <!-- <div class="container"> -->
 
-        <nav class="navbar navbar-inverse navbar-fixed-top">
+        <nav class="navbar navbar-inverse navbar-static-top">
           <div class="container">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle Navigation</span>
+                <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -59,38 +84,37 @@
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li><a href="about.html">About</a></li>
-                <li class="active"><a href="trip.html">Plan Trip</a></li>
+                <li class="active"><a href="#">Plan Trip</a></li>
                 <li><a href="report.html">Report Issue</a></li>
               </ul>
-            </div><!--/.nav-collapse -->
+            </div>
           </div>
         </nav>
 
-      </div>
+      <!-- </div> -->
     </div>
+
 
 
     <!-- Carousel
     ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
+    <div class="marketing">  <!-- container -->
+    	<!-- <div class="row"> -->
+    <!--div id="myCarousel" class="carousel slide" data-ride="carousel">-->
       <!--
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-      -->
       <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-        	alt="First slide">
-          <div class="container">
-            <div class="carousel-caption">
 
-            </div>
-          </div>
+        <div class="item active">
+          <div class="item">
+        -->
+			<div id="map-container">
+			</div>
+		</div>
+        <!--  </div>
         </div>
+
+      </div> -->
+
         <!--
         <div class="item">
           <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
@@ -105,18 +129,6 @@
             </div>
           </div>
         </div>
-        <div class="item">
-          <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>One more for good measure.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
@@ -126,96 +138,95 @@
         <span class="sr-only">Next</span>
       </a>
       -->
-    </div>
+
 
 
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
-    <div class="container marketing">
-
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-
-    		<nav class="navbar navbar-default">
-              	<div class="container-fluid">
-              		<div class="collapse navbar-collapse">
-              			<form class="navbar-form" role="search">
-    						<div class="form-group">
-    							<!--
-    							<button type="submit" class="btn btn-default">Get My Location</button>
-    							<input type="text" class="form-control" placeholder="Starting address">
-    							-->
-    							<input type="text" class="form-control" placeholder="Destination">
-    							<button type="submit" class="btn btn-default">Search</button>
-    						</div>
-    					</form>
-    				</div>
-    			</div>
-    		</nav>
-      </div>
-  	</div>
 
 
-  	<div class="container-fluid">
-  		<div class="row">
-  			<div class="col-md-1">
-  			</div>
-  			<div class="col-md-10">
-  				<i class="material-icons" style="font-size:100px;">home</i>
-  				<i class="material-icons" style="font-size:100px;">work</i>
-  				<i class="material-icons" style="font-size:100px;">store</i>
-  				<i class="material-icons" style="font-size:100px;">shopping_cart</i>
-  				<i class="material-icons" style="font-size:100px;">local_airport</i>
-  				<i class="material-icons" style="font-size:100px;">local_dining</i>
-  				<i class="material-icons" style="font-size:100px;">local_gas_station</i>
-  				<i class="material-icons" style="font-size:100px;">fitness_center</i>
-  			</div>
-  			<div class="col-md-1">
-  			</div>
-  		</div>
+		<div class="row dest-input">
 
 
-  	</div>
-  	<br>
-  	<br>
-  	<!-- START THE FEATURETTES -->
-  	<!--
-  	<hr class="featurette-divider">
-
-  	<div class="row featurette">
-  	<div class="col-md-7">
-  	  <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-  	  <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-  	</div>
-  	<div class="col-md-5">
-  	  <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-  	</div>
-  	</div>
-
-  	<hr class="featurette-divider">
+			<div class="col-lg-3">
+			</div>
+			<div class="col-lg-6">
+				<div class="input-group">
+					<span>
+						<input type="text" class="form-control" id="search-field" placeholder="Your destination">
+					</span>
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button" onclick="startSearch()">Find Routes</button>
+					</span>
+				</div>
+			</div>
+			<div class="col-lg-3">
+			</div>
+		</div><!-- /.row -->
+	</div>
 
 
-  	-->
-  	<!-- FOOTER -->
-  	<!-- <footer>
-  	<p class="pull-right"><a href="index.html">Back to top</a></p>
-    <p>&copy; 2016 Five For Biking, IndyGo, B-cycle, LLC. All rights reserved. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-  	</footer> -->
 
-  	</div>
+	<div class="marketing">	 <!-- container -->
+		<hr>
+		<div class="row container center suggestion">
+		<div class="col-sm-4 col-xs-2"></div>
+			<div class="col-xs-5 step-icons">
+				<i class="material-icons" style="font-size:40px;">airport_shuttle</i>
+				<i class="material-icons" style="font-size:40px;">directions_bike</i>
+				<i class="material-icons" style="font-size:40px;">airport_shuttle</i>
+			</div>
+			<div class="col-xs-3 hours-miles">
+				<span> hours <span class="hours">5</span> </span><p> miles <span class="miles">20</span> </p>
+				<!-- </span> -->
+			</div>
+			<!-- <div class="col-md-4"></div> -->
 
-    <!-- PhoneGap core JavaScript -->
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript">
-      app.initialize();
-    </script>
+		</div>
+		<hr>
+		<div class="row container center suggestion">
+		<div class="col-sm-4 col-xs-2"></div>
+			<div class="col-xs-5 step-icons">
+				<i class="material-icons" style="font-size:40px;">airport_shuttle</i>
+				<i class="material-icons" style="font-size:40px;">directions_bike</i>
+				<i class="material-icons" style="font-size:40px;">directions_bike</i>
+			</div>
+			<div class="col-xs-3 hours-miles">
+				<span> hours <span class="hours">5</span> </span><p> miles <span class="miles">20</span> </p>
+				<!-- </span> -->
+			</div>
+			<!-- <div class="col-md-4"></div> -->
+		</div>
 
-    <script src="js/jquery-2.2.4.min.js"></script>
-    <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+	</div>
 
-    <script src="js/trip.js"></script>
+		<hr>
+
+		<!-- <div class="container-fluid"> -->
+			<!-- <div class="row"> -->
+				<!-- <div class="col-md-3"> -->
+				<!-- </div> -->
+				<!-- <div class="col-md-8"> -->
+					<!--<i class="material-icons" style="font-size:100px;">home</i>-->
+					<!-- <i class="material-icons" style="font-size:75px;">work</i> -->
+					<!-- <i class="material-icons" style="font-size:75px;">store</i> -->
+					<!-- <i class="material-icons" style="font-size:75px;">shopping_cart</i> -->
+					<!-- <i class="material-icons" style="font-size:75px;">local_airport</i> -->
+					<!-- <i class="material-icons" style="font-size:75px;">local_dining</i> -->
+					<!-- <i class="material-icons" style="font-size:75px;">local_gas_station</i> -->
+					<!-- <i class="material-icons" style="font-size:75px;">fitness_center</i> -->
+				<!-- </div> -->
+				<!-- <div class="col-md-1"> -->
+				<!-- </div> -->
+			<!-- </div> -->
+
+
+		<!-- </div> -->
+
+
+	</div>
+
   </body>
 </html>
