@@ -57,6 +57,7 @@ dest = new google.maps.LatLng(39.774480, -86.151075);
 // TODO: Switch to calling getRoutes() on user input submit
 // loadMap(): render map centered on geolocation|indy
 function loadMap() {
+  debugger;
   // geolocation if available, default Indy LatLng otherwise
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (pos) {
