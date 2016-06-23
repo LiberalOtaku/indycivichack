@@ -77,6 +77,8 @@ function loadMap() {
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
 
+      debugger;
+
       // map = new google.maps.Map(document.getElementById("map-container"), mapProps);
       map = new google.maps.Map($('#map-container')[0], mapProps);
 
@@ -85,6 +87,8 @@ function loadMap() {
   } else {
     console.log("Geolocation is not supported on this phone/browser.");
     console.log("Using default LatLong for Indianapolis: ", indy);
+
+    debugger;
 
     // Display the map
     mapProps = {
