@@ -1,0 +1,25 @@
+{
+  "name": "indytransit",
+  "version": "0.9.0",
+  "description": "IndyGo and Pacers Bikeshare Challenge App",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LiberalOtaku/indycivichack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LiberalOtaku/indycivichack/issues"
+  },
+  "homepage": "https://github.com/LiberalOtaku/indycivichack#readme",
+  "dependencies": {
+    "material-design-icons": "^2.2.3"
+  }
+}
