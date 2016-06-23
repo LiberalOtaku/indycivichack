@@ -317,9 +317,9 @@
       console.log("Using default LatLong for Indianapolis: ", indy);
     };
 
-    // Display the map
+    // Display the map (center at indy instead of origin for now)
     mapProps = {
-      center: origin,
+      center: indy,
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
